@@ -2,6 +2,7 @@ import threading,sys,os
 from codes.hawei import HaiWei
 from PyQt5.QtWidgets import QApplication,QMainWindow,QInputDialog,QLineEdit,QMessageBox
 from PyQt5.QtCore import pyqtSignal,QObject
+from PyQt5.QtGui import QIcon
 from ui.main import Ui_MainWindow
 from selenium import webdriver
 class Myignals(QObject):
@@ -9,16 +10,22 @@ class Myignals(QObject):
     log_add=pyqtSignal(str)
 def init_window_main():
     window_main.setWindowTitle('华为mate40多线程抢购神器')
+    window_main.setWindowIcon(QIcon('logo.ico'))
     #绑定按钮信号
     ui_main.bt_add.clicked.connect(add)
     ui_main.bt_openWeb.clicked.connect(openWeb)
     ui_main.bt_start.clicked.connect(true_or_Flase)
-
+    window_main.closeEvent=close
+def close(enent):
+    #关闭所有的浏览器
+    for item in driver:
+        item.quit()
 def add():
     hw.setting(ui_main.ed_url.text(), ui_main.ed_css.text())
     name, okPressed =QInputDialog.getText(window_main,"请输入字符或者数字", "账号备注名:", QLineEdit.Normal, "")
     if okPressed and name != '':
         hw.addLogin(name,window_main,ms)
+
 def openWeb():
     hw.setting(ui_main.ed_url.text(), ui_main.ed_css.text())
     ui_main.ed_log.append('现在请自己选择好产品的尺寸,规格,型号等参数,然后点全部开始,别关闭浏览器!')
@@ -32,13 +39,21 @@ def openWeb():
         # 开始运行
         t[-1].start()
 def true_or_Flase():
-    print(ui_main.bt_start.text())
+
+    if len(driver)==0:
+        log_add('请先点击启动浏览器!')
+
+        return
     global start
     if start==True:
         ui_main.bt_start.setText('3.全部开始')
+        log_add('已经全部暂停!')
         start = False
     else:
         ui_main.bt_start.setText('3.全部暂停')
+
+        log_add('已经全部开始!')
+
 
         start =True
     hw.start_kg =start
@@ -46,6 +61,7 @@ def log_add(text):
     print(text)
     ui_main.ed_log.append(text)
 if __name__ == '__main__':
+
     # 自定义一个信号
     ms = log_sg = Myignals()
     # 绑定日志更新的信号

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(711, 372)
+        MainWindow.resize(697, 430)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -52,6 +52,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.bt_start)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.ed_log = QtWidgets.QTextEdit(self.centralwidget)
+        self.ed_log.setMaximumSize(QtCore.QSize(16777215, 150))
         self.ed_log.setObjectName("ed_log")
         self.verticalLayout.addWidget(self.ed_log)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -65,30 +66,30 @@ class Ui_MainWindow(object):
         self.uRLLabel.setText(_translate("MainWindow", "目标URL"))
         self.ed_url.setText(_translate("MainWindow", "https://www.vmall.com/product/10086726905036.html"))
         self.lb_an.setText(_translate("MainWindow", "目标按钮"))
-        self.ed_css.setText(_translate("MainWindow", "#pro-operation > a:nth-child(2)"))
+        self.ed_css.setText(_translate("MainWindow", "#pro-operation > a.product-button02"))
         self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">使用步骤:</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.第一次使用请先点击[<span style=\" font-weight:600; color:#ff0000;\">增加账号cookies</span>]就是提前在网页中登录好账号,这个可以登入多个,会保存在cookies目录中</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.设置好账号后,就可以点击[<span style=\" font-weight:600; color:#ff0000;\">启动浏览器</span>],意思就是会同时运行cookies目录中所有提前设置好的账号</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.当浏览器都开启了之后,请自己把产品的尺寸,规格,型号等参数,网页上自己弄![]</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.设置好一切后,点击[<span style=\" font-weight:600; color:#ff0000;\">全部开始按钮</span>]</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">(假如你只有一个号,你可以多复制几次,就可以形成一个账号多个页面同时抢购)</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">如果你要自定义别的产品:</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">第一种情况:还是华为mate40系列只是换成mate40 pro+ 或者保时捷,那就只需要把目标URL改了就好了,不用动目标按钮的文本</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">第二种情况:就是干脆是别的网站的产品了(这种情况按钮肯定是会变的,所以请按照下方的步骤获取目标按钮的css选择器文本)</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">获取目标按钮cs选择器文本方法:</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">1.打开你的网站然后在浏览器中找到你需要不断点击的按钮 按f12 </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; text-decoration: underline; color:#0000ff;\">https://attach.52pojie.cn//forum/202011/12/165648ml2jxid0bzflaz0f.gif?l</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#ff007f;\">(有时候目标按钮的属性是动态的,所以最好是懂点css的基础,或者自己找规律来改)</span></p></body></html>"))
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">使用步骤:</span><span style=\" font-weight:600; color:#0000ff;\">(抢购失败后,会自动继续返回重试,仅支持华为商城)</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#0000ff;\">本工具依然是看脸,不过可以比普通人同时多看几次脸</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.第一次使用请先点击[<span style=\" font-weight:600; color:#ff0000;\">增加账号cookies</span>]就是提前在网页中登录好账号,这个可以登入多个,会保存在cookies目录中</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.设置好账号后,就可以点击[<span style=\" font-weight:600; color:#ff0000;\">启动浏览器</span>],意思就是会同时运行cookies目录中所有提前设置好的账号</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.当浏览器都开启了之后,请自己把产品的尺寸,规格,型号等参数,网页上自己弄![]</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.设置好一切后,点击[<span style=\" font-weight:600; color:#ff0000;\">全部开始按钮</span>]</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">(假如你只有一个号,你可以多点几次[<span style=\" font-weight:600; color:#ff0000;\">启动浏览器</span>],就可以形成一个账号多个页面同时抢购)</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">如果你要自定义别的产品:</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">第一种情况:还是华为mate40系列只是换成mate40 pro+ 或者保时捷,那就把目标URL换成产品网站就行了</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">第二种情况:就是干脆是别的网站的产品了(这种情况按钮肯定是会变的,所以请按照下方的步骤获取目标按钮的css选择器文本)</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#000000; background-color:#ffffff;\">天猫华为官方自营店抢购目标按钮文本</span><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#62a362; background-color:#ffffff;\">:</span><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#ff0000; background-color:#000000;\">#J_LinkBuy</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#000000; background-color:#ffffff;\">京东华为官方自营店抢购目标按钮文本</span><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#62a362; background-color:#ffffff;\">:</span><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#ff0000; background-color:#000000;\">#choose-btn-ko</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#000000; background-color:#ffffff;\">(如果不支持cookies提前保存,淘宝的反爬检测是有的,京东不清楚)</span><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#000000;\">最后随便添加几次账号</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Tahoma\',\'PingFang SC\',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'Simsun\',\'sans-serif\'; font-size:14px; color:#000000;\">(这样才能打开多个浏览器)然后直接点</span>[<span style=\" font-weight:600; color:#ff0000;\">启动浏览器]</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#ff0000;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">获取目标按钮css选择器文本方法:</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">1.打开你的网站然后在浏览器中找到你需要不断点击的按钮 按f12 </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; text-decoration: underline; color:#0000ff;\">https://attach.52pojie.cn//forum/202011/12/165648ml2jxid0bzflaz0f.gif?l</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#ff007f;\">(有时候目标按钮的属性是动态的,所以最好是懂点css的基础,或者自己找规律来改)</span></p></body></html>"))
         self.bt_add.setText(_translate("MainWindow", "1.增加账号cookies"))
         self.bt_openWeb.setText(_translate("MainWindow", "2.启动浏览器"))
         self.bt_start.setText(_translate("MainWindow", "3.全部开始"))
